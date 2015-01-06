@@ -5,12 +5,18 @@ Think volcano
 */
 class ParticleGenerator{
   float x, y;  // Where particles spew out of 
+  Particle[] particles;
   ParticleGenerator(float x, float y){
     this.x = x;
     this.y = y;
+    this.particles = new Particle[3];
+    for(int i = 0; i < 3; i++){
+      particles[i] = new Particle(i);
+    }
   }
   void update(){
-    ellipse(x, y, 20, 20);
-    y = y - 1;
+    for(int i = 0; i < 3; i++){
+      particles[i].update();
+    }
   }
 }
