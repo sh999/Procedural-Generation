@@ -1,25 +1,29 @@
 class Particle{
-  int x;
+  float x, y;
+  float dy;
   float health;
   PFont myFont;
-  int id;
   color particleColor;
-  int delay;
-  Particle(int id){
-    this.x = id * 40;
-    this.id = id;
-    health = 100 + (20 - id*3);
-    delay = id * 30;
+  Particle(){
+    this.x = random(0,width);
+    this.y = height;
+    this.dy = 0;
+    health = random(100, 150);
     myFont = loadFont("GillSans-15.vlw");
     textFont(myFont, 15);
-    
   }
   void update(){
-//    fill(health/120*250);
-    ellipse(x, 30, 20, 20);
-    
-    text(health, x, id*40+70);
-    health = health - 1;
-    
+    fade();
+    if(health < 100){
+      if(dy == 0) dy = 1;
+      dy = dy + 0.05;
+    }
+    y = y - dy;
+    ellipse(x, y, 20, 20);
   }
+  
+  void fade(){
+    health = health - 0.05;
+  }
+  
 }
