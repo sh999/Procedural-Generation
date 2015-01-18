@@ -3,7 +3,7 @@ color bgColor;
 PFont myFont;
 float clock;
 void setup(){
-  size(300, 300);
+  size(400, 400);
   noStroke();
   smooth();
   bgColor = color(0, 60, 80);

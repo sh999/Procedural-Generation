@@ -1,7 +1,7 @@
 class Particle{
   float x, y;
   int rad;
-  float dy;
+  float dy, accel;
   float health;
   PFont myFont;
   color particleColor;
@@ -9,7 +9,8 @@ class Particle{
     this.x = random(0,width);
     this.y = height;
     this.dy = 0;
-    this.rad = 3;
+    this.rad = 20;
+    this.accel = random(0, 0.1);
     health = random(100, 150);
     myFont = loadFont("GillSans-15.vlw");
     textFont(myFont, 15);
@@ -18,7 +19,7 @@ class Particle{
     fade();
     if(health < 100){
       if(dy == 0) dy = 1;
-      dy = dy + 0.05;
+      dy = dy + accel;
     }
     y = y - dy;
     ellipse(x, y, rad, rad);
