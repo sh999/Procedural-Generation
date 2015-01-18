@@ -16,6 +16,7 @@ class Particle{
     textFont(myFont, 15);
   }
   void update(){
+    
     fade();
     if(health < 100){
       if(dy == 0) dy = 1;
@@ -23,6 +24,7 @@ class Particle{
     }
     y = y - dy;
     ellipse(x, y, rad, rad);
+    point(x, y);
   }
   
   void fade(){
