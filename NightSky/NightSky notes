@@ -1,0 +1,9 @@
+Project:  Star field generator
+Goal:  Create a procedurally generated realistic image of night sky full of stars with galaxy across the sky (a la Milky way)
+Started on:  1/29/15
+
+Notes:
+Create random stars with random position, color, intensity.
+
+Program Log:
+1/29/15- Start of project

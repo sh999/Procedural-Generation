@@ -3,7 +3,7 @@ StarField starField;
 void setup(){
   size(1600, 800);
   background(0);
-  starField = new StarField(10);
+  starField = new StarField(100);
 }
 
 void draw(){
@@ -15,6 +15,10 @@ void draw(){
   Draw ground
   Post processing (if needed)  
   */
+}
+
+void mousePressed(){
+  setup();
 }
 
 
