@@ -3,7 +3,7 @@ StarField starField;
 void setup(){
   size(1600, 800);
   background(0);
-  starField = new StarField(100);
+  starField = new StarField(10);
 }
 
 void draw(){

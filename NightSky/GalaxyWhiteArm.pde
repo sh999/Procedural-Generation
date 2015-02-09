@@ -1,2 +1,3 @@
-classGalaxyWhiteArm{
+class GalaxyWhiteArm{
+  
 }
