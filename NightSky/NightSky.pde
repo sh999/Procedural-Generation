@@ -1,13 +1,18 @@
 StarField starField;
+Galaxy galaxy;
 
 void setup(){
   size(1600, 800);
   background(0);
-  starField = new StarField(10);
+  rectMode(CENTER);
+  noStroke();
+  starField = new StarField(1000);
+  galaxy = new Galaxy();
 }
 
 void draw(){
   starField.drawStarField();
+  galaxy.update();
   /*
   Draw field of stars
   Draw dark cloud

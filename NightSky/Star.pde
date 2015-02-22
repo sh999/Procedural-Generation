@@ -7,15 +7,21 @@ class Star{
   int starAlpha;
   Star(){
     minRadius = 1;
-    maxRadius = 90;
+    maxRadius = 5;
     radius = random(minRadius, maxRadius);
-    radius = 90;
+    // radius = 90; Activate line if doing gradient star
     x = random(0,width);
     y = random(0,height);
     starColor = getStarColor();
     starAlpha = 250;
   }
+  
   void drawStar(){
+    fill(255);
+    ellipse(x, y, radius, radius);
+  }
+
+  void drawStar2(){
     int whiteRadius = 20;
     ellipse(x, y, whiteRadius, whiteRadius);
     drawColorHalo();
@@ -42,6 +48,5 @@ class Star{
     else{
       return color(0, 0, 255);
     }
-    
   }
 }

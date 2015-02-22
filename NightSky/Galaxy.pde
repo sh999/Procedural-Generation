@@ -17,4 +17,18 @@ class Galaxy{
       Length, width
       Wispiness  
   */
+  GalaxyNucleus galaxyNucleus;
+  GalaxyWhiteArm galaxyWhiteArm;
+  GalaxyBlackArm galaxyBlackAr;
+  Galaxy(){
+    galaxyNucleus = new GalaxyNucleus(width/2, height/2, 100);
+    galaxyWhiteArm = new GalaxyWhiteArm();
+    galaxyBlackAr = new GalaxyBlackArm();
+  }
+
+  void update(){
+    galaxyNucleus.update();
+    galaxyWhiteArm.update();
+    galaxyBlackAr.update();
+  }
 }
