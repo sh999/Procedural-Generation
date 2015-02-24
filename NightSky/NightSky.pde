@@ -6,8 +6,11 @@ void setup(){
   background(0);
   rectMode(CENTER);
   noStroke();
-  starField = new StarField(1000);
-  galaxy = new Galaxy();
+  
+  int stars = 1000;
+  float angle = random(-0.5, 0.5);
+  starField = new StarField(stars);
+  galaxy = new Galaxy(angle);
 }
 
 void draw(){

@@ -19,16 +19,21 @@ class Galaxy{
   */
   GalaxyNucleus galaxyNucleus;
   GalaxyWhiteArm galaxyWhiteArm;
-  GalaxyBlackArm galaxyBlackAr;
-  Galaxy(){
-    galaxyNucleus = new GalaxyNucleus(width/2, height/2, 100);
+  GalaxyBlackArm galaxyBlackArm;
+  float angle;
+  Galaxy(float angle){
+    galaxyNucleus = new GalaxyNucleus(0, 0, 100);
     galaxyWhiteArm = new GalaxyWhiteArm();
-    galaxyBlackAr = new GalaxyBlackArm();
+    galaxyBlackArm = new GalaxyBlackArm();
+    this.angle = angle;
   }
 
   void update(){
+    translate(width/2, height/2);
+    rotate(angle);
+
     galaxyNucleus.update();
     galaxyWhiteArm.update();
-    galaxyBlackAr.update();
+    galaxyBlackArm.update();
   }
 }

@@ -41,7 +41,6 @@ class Star{
   }
   color getStarColor(){
     int colorChoice = int(random(1, 10));
-    print(colorChoice);
     if(colorChoice >= 5){
       return color(255, 0, 0);
     }

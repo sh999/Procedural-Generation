@@ -5,7 +5,7 @@ class GalaxyBlackArm{
 	
 	void update(){
 		fill(30);
-		rect(width/2, height/2, width, 20);
+		rect(0, 0, width, 20);
 	}
 
 }
