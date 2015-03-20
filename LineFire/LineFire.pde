@@ -1,3 +1,5 @@
+//todo: put into a class
+
 float r, g, b;
 void setup(){
 	size(500, 500);
