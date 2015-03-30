@@ -2,14 +2,15 @@ class Particle{
   float x, y, dx, dy;
   float dir, speed;
   int radius;
-  
+  ScreenPixels pix;
   float health;
   PFont myFont;
   color particleColor;
-  Particle(){
+  Particle(ScreenPixels sp){
     this.x = width/2;
     this.y = height/2;
     this.radius = 5;
+    this.pix = sp;
     dir = radians(-90);
     speed = 0.35;
     health = random(100, 150);
@@ -20,9 +21,19 @@ class Particle{
     fade();
     changeDirection();
     move();
-    ellipse(x, y, radius, radius);
+    drawParticle();
+    dropDots();
+
   }
   
+  void drawParticle(){
+    ellipse(x, y, radius, radius);
+  }
+
+  void dropDots(){
+     
+  }
+
   void move(){
     dir = dir + random(-0.1,0.1);
     dx = cos(dir) * speed;

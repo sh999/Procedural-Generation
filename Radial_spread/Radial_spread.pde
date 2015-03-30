@@ -1,22 +1,23 @@
-ParticleGenerator a;
+ParticleGenerator particleGenerator;
 color bgColor;
 PFont myFont;
 float clock;
+ScreenPixels screenPixels;
 void setup(){
-  size(300, 300);
+  size(200, 200);
   noStroke();
   smooth();
   bgColor = color(0, 60, 80);
   background(bgColor);
-  a = new ParticleGenerator(width/2, height/2, 100);
+  screenPixels = new ScreenPixels(width, height);
+  particleGenerator = new ParticleGenerator(width/2, height/2, 100, screenPixels);
   myFont = loadFont("GillSans-15.vlw");
   textFont(myFont, 15);
 }
 
 void draw(){
   background(bgColor);
-  a.update();
-//  text("time = "+clock, 40, 40);
+  particleGenerator.update();
   clock = clock + 1;
 }
 
