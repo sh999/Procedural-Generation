@@ -3,7 +3,7 @@ class SideMark{
 
 	}
 
-	void draw(){
+	void draw(int i, color c){
 		for(int j = 0; j <= random(100); j++){
 			fill(c);
 			ellipse(250 + j*5, i, 3, 3);
