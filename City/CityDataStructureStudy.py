@@ -21,16 +21,42 @@ neighboring land plot (North, south, east, west)
 	Can generate this graph automatically in the beginning using
 	nested for loop (2) that generates N, S, E, W, neighbors
 '''
+import random
+def build(land, weight):
+	# Build a building on one land plot
+	# Input:
+	# Land = Array of land to be modified
+	# Weight = Array of weights, the likelihood a building can be built
+	
+	for i, j in enumerate(weight):
+		if weight[i] != None:
+			build = random.random()
+			if build < j:
+				land[i] = 1
+				print "Building on", i
+				print "updating.."
+				weight = update(weight, i)
+				print "new weight = ", weight
+				print "new land = ", land
+	return land
 
-def build(a):
-	a[2] = 3
-	return a
-def update(a, b):
-	for i, j in enumerate(a):
-		w = abs(b - i)
+def update(weight, buildingIndex):
+	# Factor for distance-weight
+	# Increase to make building more rare
+	factor = 3
+	for i, j in enumerate(weight):
+		# Check all items, determine distance, set weight based on it
 		print i, j
-		a[i] = a[i] + w
-	return a
+		if(i != buildingIndex):
+			# Set probabilities based on distance
+			w = (1-(float(abs(buildingIndex - i))/10))/factor
+			# print i, j
+			weight[i] = weight[i] + w
+		else:
+			# If building exists, set weight to nil
+			weight[i] = 0
+	return weight
+
 def printLand(a, l, w):
 	for i in l:
 		for j in w:
@@ -39,12 +65,14 @@ def printLand(a, l, w):
 
 land = []
 buildings = []
-width = 3
-length = 3
+width = 10
+length = 2
 total = width * length
 land = [0] * total
-print land
-land = build(land)
-print land
-land = update(land, 2)
-print land
+weight = [0.1] * total
+print "Initial land = ", land
+print "Initial weight ", weight
+land = build(land, weight)
+print "After build 1 = ", land
+
+
