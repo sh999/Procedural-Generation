@@ -29,9 +29,12 @@ Each point in the plane represents (c_x, c_y).  Each point is colored black iff 
 resulting from that particular (c_x, c_y) converges. Coloration popular in many depictions are determined
 by the number of iterations that the equation can undergo so long as the orbit is under the magnitude of 2.
 
-Below is from the wiki page, where for each pixel, the color of it is determined by iterating through the
+Below is derived from the wiki page, where for each pixel, the color of it is determined by iterating through the
 equation and stopping when the distance from origin > 2. Note that notation x_n-1, y_n-1 isn't used
 because of the nature of overwriting during variable assignment.
+
+The loop exits when distance from orbit to origin > 2 because we know that once the orbit reaches this value,
+it always diverges.
 
 for each pixel of coordinate (c_x, c_y):
 	x_n = 0	// initial condition is always 0 for both components
