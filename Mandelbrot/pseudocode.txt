@@ -1,6 +1,8 @@
 Mandelbrot pseudocode
 
-
+References:
+https://en.wikipedia.org/wiki/Mandelbrot_set
+http://math.bu.edu/eap/DYSYS/FRACGEOM/index.html
 Mandelbrot equation:
 	
 	(x_n, y_n) = (x_n-1, y_n-1)^2 + (c_x, c_y)
@@ -27,9 +29,18 @@ Each point in the plane represents (c_x, c_y).  Each point is colored black iff 
 resulting from that particular (c_x, c_y) converges. Coloration popular in many depictions are determined
 by the number of iterations that the equation can undergo so long as the orbit is under the magnitude of 2.
 
+Below is from the wiki page, where for each pixel, the color of it is determined by iterating through the
+equation and stopping when the distance from origin > 2. Note that notation x_n-1, y_n-1 isn't used
+because of the nature of overwriting during variable assignment.
 
-
-for each pixel:
-	x_n-1 = 0	// initial condition is always 0 for both components
-	y_n-1 = 0
-	while (distance(origin, orbit) < 2 and iteration < iteration_limit):
+for each pixel of coordinate (c_x, c_y):
+	x_n = 0	// initial condition is always 0 for both components
+	y_n = 0
+	iteration_limit = any custom value
+	iterations = 0
+	while (distance(origin, orbit) < 2 and iterations < iteration_limit):
+		orbit_temp_x = (x_n)^2 - (y_n)^2 + c_x		
+		y_n = 2 * (x_n) * (y_n) + c_y
+		x_n = orbit_temp_x
+		iterations += 1
+	color (c_x, c_y) = iterations normalized
