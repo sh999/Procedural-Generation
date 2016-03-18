@@ -1,0 +1,35 @@
+Mandelbrot pseudocode
+
+
+Mandelbrot equation:
+	
+	(x_n, y_n) = (x_n-1, y_n-1)^2 + (c_x, c_y)
+
+	where (x_n, y_n) is called the orbit, a complex number
+		x_n is the real component
+		y_n is the imaginary component
+	x_n-1 stands for x subscript (n-1)
+	(c_x, c_y) is a constant ("c" in conventional descriptions) 
+		c_x is the real component 
+		c_y is the imaginary component
+
+A mandelbrot set contains a sequence of numbers obtained by 
+calculating the above equation with (x_n-1, y_n-1) = 0 and (c_x, c_y) = any possible combination
+to obtain (x_n, y_n)--this becomes the first value in the set. To get the next value in the set, 
+the equation is "iterated", or undergoes recursion; that is, (x_n, y_n) is put in place of (x_n-1, y_n-1)
+while (c_x, c_y) is constant.
+
+Each unique (c_x, c_y) value results in some mandelbrot set; the set can converge to some constant or
+diverge to infinity.
+
+The set is plotted on a 2d imaginary plane with reals as x-axis and imaginary number as y-axis.
+Each point in the plane represents (c_x, c_y).  Each point is colored black iff the mandelbrot set
+resulting from that particular (c_x, c_y) converges. Coloration popular in many depictions are determined
+by the number of iterations that the equation can undergo so long as the orbit is under the magnitude of 2.
+
+
+
+for each pixel:
+	x_n-1 = 0	// initial condition is always 0 for both components
+	y_n-1 = 0
+	while (distance(origin, orbit) < 2 and iteration < iteration_limit):
