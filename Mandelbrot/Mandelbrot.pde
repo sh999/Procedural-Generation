@@ -2,6 +2,7 @@ float plot_width = 2.5;
 float plot_height = 2.5;
 float plot_x_center = -0.75;
 float plot_y_center = 0;
+int max_iterations = 100;
 
 void setup() {
   size(500, 500);
@@ -15,17 +16,25 @@ void draw(){
   
 }
 
+void keyReleased(){
+  if(keyCode == UP){
+    max_iterations = int(max_iterations * 1.1);
+    plot_set(plot_width, plot_height, plot_x_center, plot_y_center);
+  }
+}
+
 void mouseReleased(){
   float x_axis_min = plot_x_center - plot_width/2;
   float x_axis_max = plot_x_center + plot_width/2;
   float y_axis_min = plot_y_center - plot_height/2;
   float y_axis_max = plot_y_center + plot_height/2;
-  
+  //max_iterations = int(max_iterations * 1.1);
   plot_x_center = map(mouseX, 0, width, x_axis_min, x_axis_max);
   plot_y_center = map(mouseY, 0, height, y_axis_min, y_axis_max);
   
-  plot_width = plot_width * 0.75;
-  plot_height = plot_height * 0.75;
+  
+  plot_width = plot_width * 0.5;
+  plot_height = plot_height * 0.5;
   
   plot_set(plot_width, plot_height, plot_x_center, plot_y_center);
 }
@@ -37,7 +46,6 @@ void plot_set(float plot_width, float plot_height, float plot_x_center, float pl
   float c_x;  // pixel coordinates, or the c component in a = b^2 + c
   float c_y;
   int iterations;
-  int max_iterations;
   int resolution = 1; // 1 is highest pixel resolution
  /*
   float plot_width = 2.5;
@@ -59,7 +67,6 @@ void plot_set(float plot_width, float plot_height, float plot_x_center, float pl
       x = 0;  // iteration starts with (0, 0) value in the first calculation
       y = 0;  
       iterations = 0;
-      max_iterations = 100;  // adjust to get shape resolution 
       
       c_x = map(ax, 0, width, x_axis_min, x_axis_max);  // maps canvas size to small 2d coordinate  //<>//
       c_y = map(ay, 0, height, y_axis_min, y_axis_max);  // mandelbrot set is visible only in this area
